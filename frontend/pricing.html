@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pricing</title>
+        <link rel="stylesheet" href="./main.css" > 
+    </head>
+    <body>         
+        <div class="second-container" style="display: flex; flex-direction: column">
+            <div class="topbar">
+                <button id="home" style="margin: 0;">
+                    <h2>Home</h2>
+                </button>
+                <button id="signin" style="margin: 0; margin-left: 10px">
+                    <h2>Sign in</h2>
+                </button>
+            </div>  
+            <h1 class="main-title">Pricing</h1>
+            <h3 class="under-title" style="padding-left: 20vw; padding-right: 20vw; text-align: center; margin-top: 40px">This website is still in beta, if you want to support the project : kickstarter.com</h3>
+            <h3 class="under-title" style="padding-left: 20vw; padding-right: 20vw; text-align: center; margin-top: 20px">For now, free accounts have 10 free tokens, each token represent one song generation. Downloads aren't consuming any tokens.</h3>
+            <h3 class="under-title" style="margin-top: 40px; padding-left: 20vw; padding-right: 20vw; text-align: center">To become a premium beta user, contact me at : arthurs.dev@gmail.com</h3>
+        </div>        
+        <div class="inner-cursor"></div>
+        <script>
+            const logoutButton = document.getElementById("home")
+            logoutButton.onclick = () => {
+                window.location.href = "./" 
+            }
+        </script>
+        <script>
+            const signinButton = document.getElementById("signin")
+            signinButton.onclick = () => {
+                window.location.href = "./signin" 
+            }
+        </script>
+        <script src="./cursor.js"></script>
+    </body>    
+</html>

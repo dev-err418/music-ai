@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stop searching, now create !</title>
+        <link rel="stylesheet" href="main.css" >    
+    </head>
+    <body>    
+        <div>
+            <div class="first-container">
+                <div class="topbar">
+                    <button style="margin:0; margin-right: 20px; background-color: black" onclick="window.location.href = './pricing'">
+                        <h2 style="color: white" >Pricing</h2>
+                    </button>                    
+                    <button style="margin: 0;" onclick="window.location.href = './signin'">
+                        <h2>Sign in</h2>
+                    </button>
+                </div>
+                <h1 class="main-title">Stop searching.</h1>
+                <div class="rainbow-container" >
+                    <h1 class="main-title"><pre>Create your </pre></h1>
+                    <ul class="c-rainbow">
+                        <li style="font-weight: 800; font-size: 5.5vw" class="c-rainbow__layer c-rainbow__layer--white">music.</li>
+                        <li style="font-weight: 800; font-size: 5.5vw" class="c-rainbow__layer c-rainbow__layer--red">music.</li>
+                        <li style="font-weight: 800; font-size: 5.5vw" class="c-rainbow__layer c-rainbow__layer--orange">music.</li>
+                        <li style="font-weight: 800; font-size: 5.5vw" class="c-rainbow__layer c-rainbow__layer--violet">music.</li>
+                        <li style="font-weight: 800; font-size: 5.5vw" class="c-rainbow__layer c-rainbow__layer--blue">music.</li>                
+                    </ul>
+                </div>
+                <div class="under-title-container">
+                    <h1 class="under-title"><b>Unlimited</b>, fully <b>customizable</b> and <b>royalty-free</b> ai generated music.</h1>
+                    <h1 class="under-title">Built by creative people for creative people.</h1>                
+                </div>
+                <button id="top-button" type="button">
+                    <h2 class="under-title" style="font-weight: 700;">Start</h2>
+                </button>
+            </div>
+            <div class="second-container" id="second-container">
+                <div class="img-container">
+                    <img id="img1" alt="cameraImage" src="./assets/camera.jpg" />
+                    <img id="img2" alt="singerImage" src="./assets/singer.jpg" />
+                    <img id="img3" alt="keyboradsImage" src="./assets/claviers.jpg" />
+                </div>            
+                <div class="left-part" id="left-part">
+
+                    <div class="card top-card">
+
+                        <div id="scrolling-words-container" class="scrolling-words-container">
+                            <span style="color: white" class="mid-title">Are you</span>
+                            <div class="scrolling-words-box">
+                                <ul>
+                                    <li class="mid-title" style="color: white">a filmaker <pre style="color: #0091ea"> ?</pre></li>
+                                    <li class="mid-title" style="color: white">an artist <pre style="color: #7c4dff"> ?</pre></li>              
+                                    <li class="mid-title" style="color: white">a musician <pre style="color: #ff9100"> ?</pre></li>
+                                    <li class="mid-title" style="color: white">a programmer <pre style="color: #34a853"> ?</pre></li>   
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-text-container">
+                            <h4 class="under-title">Create music for all of your <b>creative projects</b>, with full <b>comercial use</b> rights !
+                                Thanks to our powerful AI, generate music that really fits your needs...
+                                <br>Those audio could be used for a <b>variety of projects</b>, find yours and build something big.
+                                <br>We created XXX because we know how <b>time consuming</b> and <b>nerve breaking</b> it is to find music with the right price, liscence and genre.
+                            </h4>
+                        </div>
+                    </div> 
+
+                    <div class="card" style="padding: 0; margin-top: 30px; flex: 1; background-color: transparent; display: flex; flex-direction: row;">
+                        <div class="card playing-card">
+                            <h4 class="music-intro">Used in a moovie project for an action/suspense scene.</h4>
+                            <div class="player-container">                            
+                                <div>
+                                    <h4 class="music-light">Movie contest</h4>
+                                    <h4 class="music-title">Fury</h4> 
+                                </div>
+                                <div class="play-button-container">
+                                    <div id="player1" class="play-button" style="border-color: transparent transparent transparent #0091ea; "></div>                                              
+                                </div>      
+                                <div>
+                                    <div class="song-slider">
+                                        <span class="current-time" id="current-time1">00:00</span>
+                                        <span class="song-duration">00:45</span>
+                                    </div>
+                                    <input id="slide1" type="range" value="0" class="seek-bar seek-bar1" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card playing-card" style="margin-left: 30px; margin-right: 30px">
+                            <h4 class="music-intro">Used to create a lofi 24/7 livestream, generating songs endlessly.</h4>
+                            <div class="player-container">                            
+                                <div>
+                                    <h4 class="music-light">Coding project</h4>
+                                    <h4 class="music-title">Melancolie</h4>
+                                </div>
+                                <div class="play-button-container">
+                                    <div id="player2" class="play-button" style="border-color: transparent transparent transparent #ff9100; "></div>                                                          
+                                </div>   
+                                <div>
+                                    <div class="song-slider">
+                                        <span class=" current-time" id="current-time2">00:00</span>
+                                        <span class="song-duration">00:45</span>
+                                    </div>
+                                    <input id="slide2" type="range" value="0" class="seek-bar seek-bar2" >
+                                </div>     
+                            </div>
+                        </div>
+                        <div class="card playing-card">
+                            <h4 class="music-intro">Used in a moovie project for an epic scene</h4>
+                            <div class="player-container">
+                                <div>
+                                    <h4 class="music-light">Movie contest</h4>
+                                    <h4 class="music-title">Fury</h4>   
+                                </div>
+                                <div class="play-button-container">
+                                    <div id="player3" class="play-button" style="border-color: transparent transparent transparent #7c4dff; "></div>                         
+                                </div>      
+                                <div>
+                                    <div class="song-slider">
+                                        <span class="current-time" id="current-time3">00:00</span>
+                                        <span class="song-duration">00:45</span>
+                                    </div>
+                                    <input id="slide3" type="range" value="0" class="seek-bar seek-bar3" >
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
+                    <audio src="" id="audio"></audio>                                    
+                </div>     
+                <div class="inner-cursor"></div>
+                <!--                <div class="outer-cursor"></div>-->
+            </div>          
+        </div>
+        <script src="./cursor.js"></script>  
+        <script src="./player.js"></script>      
+        <script src="./index.html.js"></script>      
+    </body>
+</html>

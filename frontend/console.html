@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Console</title>
+        <link rel="stylesheet" href="./main.css" > 
+        <script src="https://www.gstatic.com/firebasejs/9.8.3/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.8.3/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    </head>
+    <body id="body">
+        <div class="first-container" id="first-container" style="display: none;">        
+            <div class="topbar">
+                <button style="margin:0; margin-right: 20px; background-color: black" onclick="window.location.href = './pricing'">
+                    <h2 style="color: white" >Pricing</h2>
+                </button> 
+                <button id="logout" style="margin: 0;">
+                    <h2>Logout</h2>
+                </button>
+            </div>        
+            <h1 class="mid-title" style="color: white; margin-top: 100px" id="mid-title-phone"></h1>
+            <div id="user-token-container">
+                <h1 class="under-title" id="user-type"></h1>
+                <h6>Beta pricing</h6>
+            </div>
+
+            <div id="generate-song-container">
+                <div class="selector-vertical">
+                    <h5 class="selector-title">Genres/styles</h5>
+                    <select id="dropdown">
+                        <optgroup label="Calm">
+                            <option value="0">Beautiful</option>                        
+
+                            <option value="1">Friends</option>
+
+                            <option value="2">Gentle</option>
+
+                            <option value="3">Inspirational</option>
+
+                            <option value="4">Meditation</option>
+
+                            <option value="5">Om</option>
+
+                            <option value="6">Peaceful</option>
+
+                            <option value="7">Valentines</option>
+
+                            <option value="8">Zen</option>
+
+                        </optgroup>
+                        <optgroup label="Chill Ambiance">
+                            <option value="9">Acoustic</option>
+
+                            <option value="10">Calm</option>
+
+                            <option value="11">Chillout</option>
+
+                            <option value="12">Ethnic 108</option>
+
+                            <option value="13">Romantic</option>
+
+                            <option value="14">Summer</option>
+
+                            <option value="15">Travel</option>   
+
+                        </optgroup>
+                        <optgroup label="Film/Games">
+                            <option value="16">Battle</option>
+
+                            <option value="17">Cinematic</option>
+
+                            <option value="18">Cyberpunk</option>
+
+                            <option value="19">Dramatic</option>
+
+                            <option value="20">Epic</option>
+
+                            <option value="21">Fantasy</option>
+
+                            <option value="22">Nostalgic</option>
+
+                            <option value="23">Sad</option>
+
+                            <option value="24">Sci-fi</option>
+
+                            <option value="25">Sentimental</option>
+
+                            <option value="26">Serious</option>
+
+                            <option value="27">Spooky</option>
+
+                        </optgroup>
+                        <optgroup label="Sport/Motivation">
+                            <option value="28">Cardio</option>
+
+                            <option value="29">Energy</option>
+
+                            <option value="30">Extreme</option>
+
+                            <option value="31">Fitness</option>
+
+                            <option value="32">Groovy</option>
+
+                            <option value="33">Motivation</option>
+
+                            <option value="34">Pumped</option>
+
+                            <option value="35">Run (slow BPM)</option>
+
+                            <option value="36">Run (medimum BPM)</option>
+
+                            <option value="37">Run (fast BPM)</option>
+
+                            <option value="38">Up beat</option>                        
+                            <option value="39">Up lifting</option>                        
+                            <option value="40">Warm-up</option>                        
+                            <option value="41">Yoga</option>
+                        </optgroup>
+                        <optgroup label="To work">
+                            <option value="42">Minimal</option>
+                            <option value="43">Lo-fi</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="selector-vertical">
+                    <h5 class="selector-title" style="margin-left: 10px" >Song duration</h5>
+                    <div style="display: flex; flex-direction: row">                    
+                        <select id="minutes-dropdown" style="margin-left: 10px; margin-right: 2px">
+                            <optgroup label="minutes duration">
+                                <option value="0" selected>0 min</option>
+                                <option value="1">1 min</option>
+                                <option value="2">2 min</option>
+                                <option value="3">3 min</option>
+                                <option value="4">4 min</option>                    
+                            </optgroup>
+                        </select>
+                        <select id="seconds-dropdown">
+                            <optgroup label="seconds duration" id="seconds-group">                    
+                                <option value="10">10 sec</option>
+                                <option value="15">15 sec</option>
+                                <option value="20">20 sec</option>
+                                <option value="25">25 sec</option>
+                                <option value="30" selected>30 sec</option>
+                                <option value="35">35 sec</option>
+                                <option value="40">40 sec</option>
+                                <option value="45">45 sec</option>
+                                <option value="50">50 sec</option>
+                                <option value="55">55 sec</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <!--                <input class="html-duration-picker" data-duration="00:45:00" data-duration-max="03:00:00">-->
+                <button id="generate-button" style="margin-top: 0; height: calc(100% - 0.83em - 10px)">
+                    <h3>Create</h3>
+                </button>                
+            </div>
+            <div id="songs-container"></div>
+            <div class="modal-bg hidden" id="modal-bg">
+                <div class="modal-container hidden" id="modal-container">
+                    <div class="modal-top">
+                        <h3>Other generations</h3>
+                        <h4 id="modal-close">close</h4>
+                    </div>
+                    <div id="modal-songs"></div>
+                </div>
+
+            </div>            
+        </div>
+
+        <div class="inner-cursor"></div>
+        <script>
+            const minutesDropdown = document.getElementById("minutes-dropdown")
+            const secondsDropdown = document.getElementById("seconds-dropdown")
+            const secondsGroup = document.getElementById("seconds-group")
+
+            const noSeconds = document.createElement("option")
+            noSeconds.value = "0"
+            noSeconds.text = "0 sec"
+            noSeconds.id = "no-sec"
+
+            minutesDropdown.addEventListener("change", () => {
+                if (minutesDropdown.value != "0") {
+                    secondsGroup.prepend(noSeconds)
+                } else {
+                    const noSec = document.getElementById("no-sec")
+                    noSec.remove()
+                }
+            })
+
+        </script>
+        <script type="module">
+            import {getUser, signOut, getSong, getSameGenre, getToken, getUsageTokens} from "./firebase.js"
+
+
+            const modalContainer = document.getElementById("modal-container")
+            const closeModal = () => {
+                var audios = document.getElementsByTagName('audio');
+                for(var i = 0, len = audios.length; i < len;i++){
+                    audios[i].pause();
+                }
+                modalBg.classList.add("hidden")
+                modalContainer.classList.add("hidden")                
+            }
+
+            const modalBg = document.getElementById("modal-bg")
+            modalBg.addEventListener("click", () => closeModal())
+
+            const modalClose = document.getElementById("modal-close")
+            modalClose.addEventListener("click", () => closeModal())
+
+            const modalSongs = document.getElementById("modal-songs")
+            //            const modalButton = document.getElementById("modal-button")
+
+
+            const body = document.getElementById("body")
+            body.onload = () => {
+                getUser()                
+            }
+
+            const logoutButton = document.getElementById("logout")
+            logoutButton.onclick = () => {
+                signOut()
+            }
+
+            const filteredSongs = async (songs, currentSong, value) => {
+                const songIndex = songs.indexOf(currentSong)
+                if (songIndex > -1) {
+                    songs.splice(songIndex, 1)
+                }
+
+                modalSongs.innerHTML = ""
+                const token = await getToken()
+
+                for (let i = 0; i < songs.length; i++) {
+                    const file = songs[i]                    
+                    const songAudio = document.createElement("audio")
+                    songAudio.controls = true
+                    songAudio.controlsList = "nodownload noplaybackrate"
+
+                    const songSource = document.createElement("source")
+                    songSource.src = `http://127.0.0.1:5000/download/${value}/${file}?token=${token}`
+
+                    songAudio.appendChild(songSource)
+                    modalSongs.appendChild(songAudio)                    
+                }
+                modalBg.classList.remove("hidden")
+                modalContainer.classList.remove("hidden")
+
+            }
+
+            const minutesDropdown = document.getElementById("minutes-dropdown")
+            const secondsDropdown = document.getElementById("seconds-dropdown")
+            const dropdown = document.getElementById("dropdown")
+            const testButton = document.getElementById("generate-button")            
+            testButton.addEventListener("click", async () => {
+                const value = dropdown.value
+                const min = minutesDropdown.value
+                const sec = secondsDropdown.value
+                const lengthInSec = Number(min) * 60 + Number(sec)
+                getUser()
+                const songId = await addSong(value)                                
+                const uid = await getSong(value, lengthInSec)             
+
+                if (uid == "error") {
+                    document.getElementById(`song-${songId}`).remove()
+                    return alert("All tokens used...")
+                }
+
+                var songs = await getSameGenre(value)
+
+                const songLoader = document.getElementById(`song-loader-${songId}`)
+                songLoader.style.display = "none"
+
+                const songContainer  = document.getElementById(`song-${songId}`)
+                const songAudio = document.createElement("audio")
+                songAudio.controls = true
+                songAudio.controlsList = "nodownload noplaybackrate"
+
+                const songSource = document.createElement("source")
+                const currentSong = `${uid}.mp3`
+                const token = await getToken()
+                songSource.src = `http://127.0.0.1:5000/download/${value}/${currentSong}?token=${token}`
+
+                //                const sameSongsButton = document.createElement("button")                
+
+
+                const sameSongsButtonText = document.createElement("h5")
+                sameSongsButtonText.onclick = () => filteredSongs(songs, currentSong, value) 
+                sameSongsButtonText.id = "modal-button"
+                sameSongsButtonText.innerText = "other generations"
+                sameSongsButtonText.className = "same-song-button"
+
+                const songDownload = document.createElement("a")
+                songDownload.href = `http://127.0.0.1:5000/download/${value}/${currentSong}?token=${token}`
+
+                const songDownloadEmoji = document.createElement("h3")
+                songDownloadEmoji.innerText = " 📥 "
+                songDownloadEmoji.className = "emoji"
+                songDownload.appendChild(songDownloadEmoji)
+
+                songAudio.appendChild(songSource)
+                songContainer.appendChild(songAudio)            
+                songContainer.appendChild(sameSongsButtonText)
+                songContainer.appendChild(songDownload)
+            })     
+
+            const songsContainer = document.getElementById("songs-container")            
+            const addSong = async (songValue) => {
+                const id = songsContainer.childElementCount
+
+                const songDiv = document.createElement("div")
+                songDiv.id = `song-${id}`
+                //                songDiv.className = "song-container"   
+                songDiv.classList.add("song-container", "new-song")
+
+                const songTitle = document.createElement("h4")
+                const songText = dropdown.options[songValue].text
+                songTitle.innerText = songText
+
+                const songLoader = document.createElement("div")
+                songLoader.className = "loader"
+                songLoader.style.marginLeft = "10px"
+                songLoader.id = `song-loader-${id}`
+
+                songDiv.appendChild(songTitle)
+                songDiv.appendChild(songLoader)
+                songsContainer.prepend(songDiv)
+
+                //                window.scrollTo({left: 0, top: document.body.scrollHeight, behavior: "smooth"})
+
+                return id
+            } 
+        </script>
+        <script>
+            document.addEventListener('play', function(e){
+                var audios = document.getElementsByTagName('audio');
+                for(var i = 0, len = audios.length; i < len;i++){
+                    if(audios[i] != e.target){
+                        audios[i].pause();
+                    }
+                }
+            }, true);
+        </script>
+        <script src="./cursor.js"></script>
+        <!--        <script src="https://cdn.jsdelivr.net/npm/html-duration-picker@latest/dist/html-duration-picker.min.js"></script>-->
+    </body>
+</html>
