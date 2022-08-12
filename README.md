@@ -20,7 +20,17 @@ Once the "create" button clicked, wait for few seconds for the file to generate 
 
 ![other-songs](https://user-images.githubusercontent.com/59390256/184386266-8bead899-2749-4833-b466-6aca898057d7.gif)
 
-In this example, the generated file with the "beautiful" keyword was :
+Here are few songs generated with the "beautiful" keyword (it's impossible to upload .mp3 files on GH that's why those files are .mp4, the original files or on the root of the GH project) :
+
+https://user-images.githubusercontent.com/59390256/184392320-4d288c6c-73d9-4619-a910-57893e9c01fd.mp4
+
+https://user-images.githubusercontent.com/59390256/184392356-092232bb-9159-423d-834a-704b4530da46.mp4
+
+https://user-images.githubusercontent.com/59390256/184392738-0e861ecb-0995-41be-b7db-f3ab5eedd2c1.mp4
+
+https://user-images.githubusercontent.com/59390256/184392763-083a5972-e45c-4619-858f-8959ba690e6e.mp4
+
+https://user-images.githubusercontent.com/59390256/184392781-20815fa1-0746-4576-afea-f0e96690bcd5.mp4
 
 ## Backend :
 
