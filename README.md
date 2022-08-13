@@ -43,6 +43,6 @@ The code runs with Flask, firebase_admin and mongo db client.
 - Fireabse admin is used to check if the incomming request is made from an authenticated user. So I used it for security purposes.
 - Mongo DB is used to check if the current user is a "premium" user, then he can generate unlimited songs. If he's not, he's a free user and has 10 credits (1 credit = 1 song generated). Mongo db is used to keep track of the tokens used. Why mongo db rather than firebase realtime db or firestore ? Simply because mongo db could be run locally on the same linux machine as the python code so it would be way quicker to do local requests that requests other the internet.
 
-The ai part is not done by the python scrit. It's requesting to mubert.com to do all the process. Moobert will generate the song and then the api will grab it to send it to the web app. **See it as a reverse engineering of the mubert api.**
+⚠️ The ai part is not done by the python scrit. It's requesting to mubert.com to do all the process. Moobert will generate the song and then the api will grab it to send it to the web app. **See it as a reverse engineering of the mubert api.**
 
 Have fun playing with this code !!!
